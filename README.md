@@ -107,9 +107,11 @@ Detect malicious user inputs submitted through:
 
 📷 **Screenshots**
 
-* `<img width="1920" height="965" alt="web_payload" src="https://github.com/user-attachments/assets/54df837c-8323-4cc3-9875-ba1b67991063" />
-` – payload input
-* `<img width="1212" height="955" alt="web_output" src="https://github.com/user-attachments/assets/064bfa0f-7d22-4f12-b32a-e7a006cb6831" />`– detection result
+**Payload Input**
+![Web Payload Input](https://github.com/user-attachments/assets/54df837c-8323-4cc3-9875-ba1b67991063)
+
+**Detection Result**
+![Web Detection Output](https://github.com/user-attachments/assets/064bfa0f-7d22-4f12-b32a-e7a006cb6831)
 
 ---
 
@@ -135,10 +137,11 @@ Detect malicious network behavior using **flow-based statistics**, not packet co
 
 📷 **Screenshots**
 
-* `<img width="1212" height="955" alt="network" src="https://github.com/user-attachments/assets/b7309b17-1295-4326-b7cf-a2625ded5420" />
-` – network analysis
-* `<img width="1212" height="955" alt="netwrok_op" src="https://github.com/user-attachments/assets/984f8f61-3be2-4bb3-b972-69e6b1798666" />
-` – intrusion detected
+**Network Traffic Analysis**
+![Network Analysis](https://github.com/user-attachments/assets/b7309b17-1295-4326-b7cf-a2625ded5420)
+
+**Intrusion Detected**
+![Intrusion Detected](https://github.com/user-attachments/assets/984f8f61-3be2-4bb3-b972-69e6b1798666)
 
 ---
 
@@ -158,8 +161,9 @@ Classify Android applications as **BENIGN** or **MALWARE** based on permission a
 
 📷 **Screenshot**
 
-* `<img width="1212" height="955" alt="android_op" src="https://github.com/user-attachments/assets/901e5b38-1fef-450c-be29-410de387a354" />
-` – Android malware detection output
+**Android Malware Detection Output**
+![Android Malware Output](https://github.com/user-attachments/assets/901e5b38-1fef-450c-be29-410de387a354)
+
 
 ---
 
@@ -179,19 +183,23 @@ Classify Android applications as **BENIGN** or **MALWARE** based on permission a
 
 SentinelAI uses **FastAPI** to expose lightweight, high-performance inference endpoints.
 
-| Endpoint               | Description                 |
-| ---------------------- | --------------------------- |
-| `POST /detect/web`     | Web payload inspection      |
-| `POST /detect/network` | Network intrusion detection |
-| `POST /detect/android` | Android malware detection   |
-| `GET /alerts`          | Retrieve logged alerts      |
+The API is designed to accept **arbitrary user input** (text, payloads, feature vectors)
+and dynamically analyze it for **malicious patterns**, similar to real-world WAF and IDS systems.
 
-📷 **Screenshot**
+Any input submitted to the API is:
 
-* `<img width="1920" height="965" alt="sentinelAPI" src="https://github.com/user-attachments/assets/4c85bd11-28b9-430e-9017-b6251463fb2b" />
-` – FastAPI server running
+* Validated
+* Preprocessed
+* Passed through trained ML models
+* Classified as BENIGN or MALICIOUS
+* Logged centrally if malicious
 
----
+| Endpoint               | Description                                   |
+| ---------------------- | --------------------------------------------- |
+| `POST /detect/web`     | Inspect any user-supplied payload for attacks |
+| `POST /detect/network` | Analyze network flow statistics               |
+| `POST /detect/android` | Detect Android malware via permissions        |
+| `GET /alerts`          | Retrieve logged security alerts               |
 
 ## 7️⃣ Execution & Outputs
 
