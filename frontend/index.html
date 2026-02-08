@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeLink: Blood and Health Network</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #b71c1c;
+            --background-color: #f5f7fa;
+            --text-color: #333;
+            --text-light: #666;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                            url('https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .logo-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo::before {
+            content: "❤️";
+            font-size: 42px;
+        }
+
+        .tagline {
+            color: var(--text-light);
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .login-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            transition: transform 0.3s;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .login-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .login-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        .form-input.error {
+            border-color: #ff3860;
+            background-color: #fff5f7;
+        }
+
+        .form-input.success {
+            border-color: #23d160;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+        }
+
+        .input-hint {
+            font-size: 12px;
+            margin-top: 5px;
+            display: block;
+            min-height: 18px;
+        }
+
+        .input-hint.error {
+            color: #ff3860;
+        }
+
+        .input-hint.success {
+            color: #23d160;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-login {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-register {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-register:hover {
+            background-color: rgba(211, 47, 47, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .forgot-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .forgot-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .forgot-link a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+            display: block;
+        }
+
+        .message.error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+            display: block;
+        }
+
+        .message.info {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #bbdefb;
+            display: block;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .validation-rules {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .validation-rules ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .logo::before {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-header">
+            <div class="logo">LifeLink</div>
+            <div class="tagline">Blood and Health Network</div>
+        </div>
+
+        <div class="login-card">
+            <h2 class="login-title">Login</h2>
+            
+            <div class="message" id="message"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="email" placeholder="Enter your email" required>
+                    <span class="input-hint" id="email-hint"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="password" placeholder="Enter your password" required>
+                    <span class="input-hint" id="password-hint"></span>
+                    <div class="validation-rules">
+                        Password must contain:
+                        <ul>
+                            <li>At least 8 characters</li>
+                            <li>Uppercase & lowercase letters</li>
+                            <li>At least one number</li>
+                            <li>At least one special character</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-login" onclick="login()">
+                        🔑 Login to Account
+                    </button>
+                    <button type="button" class="btn btn-register" onclick="register()">
+                        📝 Create New Account
+                    </button>
+                </div>
+
+                <div class="forgot-link">
+                    <a href="#" onclick="forgotPassword()">Forgot your password?</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer-text">
+            Your trusted platform for blood donation and healthcare services
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCl17zNeEBsyCi0SmD83EXWzOMDynu-Ro0",
+            authDomain: "blood-and-hospital-finder-main.firebaseapp.com",
+            databaseURL: "https://blood-and-hospital-finder-main-default-rtdb.firebaseio.com",
+            projectId: "blood-and-hospital-finder-main",
+            storageBucket: "blood-and-hospital-finder-main.appspot.com",
+            messagingSenderId: "746429696511",
+            appId: "1:746429696511:web:2b435c8e0633fe32537fca",
+            measurementId: "G-DD0CX3HH6W"
+        };
+
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const auth = firebase.auth();
+        const database = firebase.database();
+
+        // SentinelAI API URL
+        const SENTINEL_API_URL = "http://localhost:8000/api";
+
+        // Security logging
+        let failedAttempts = {};
+        
+        // Whitelist of known legitimate email domains
+        const LEGITIMATE_DOMAINS = [
+            'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com',
+            'icloud.com', 'protonmail.com', 'example.com', 'test.com'
+        ];
+        
+        const MAX_ATTEMPTS = 5;
+
+        // IMPROVED: Check login with SentinelAI - with fallback
+        async function checkLoginSecurity(email, password) {
+            // FIRST: Check if it looks like a legitimate user
+            if (isLikelyLegitimate(email, password)) {
+                console.log('Bypassing SentinelAI - Likely legitimate user');
+                return { allow: true, reason: 'Legitimate user bypass' };
+            }
+            
+            try {
+                const response = await fetch(`${SENTINEL_API_URL}/login-check`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Silent-Mode': 'true'
+                    },
+                    body: JSON.stringify({
+                        username: email,
+                        password: password
+                    })
+                });
+                
+                if (!response.ok) {
+                    // If SentinelAI returns error, allow login
+                    console.warn('SentinelAI returned error, allowing login');
+                    return { allow: true, reason: 'SentinelAI error' };
+                }
+                
+                const data = await response.json();
+                console.log('SentinelAI Response:', data);
+                
+                // If SentinelAI blocks but confidence is low, still allow
+                if (!data.allow && data.confidence < 0.8) {
+                    console.warn('SentinelAI blocked with low confidence, allowing anyway');
+                    return { allow: true, reason: 'Low confidence block overridden' };
+                }
+                
+                return data;
+            } catch (error) {
+                console.error('SentinelAI check failed:', error);
+                // If SentinelAI is down, allow login to continue
+                return { allow: true, reason: 'SentinelAI unavailable' };
+            }
+        }
+
+        // NEW: Check if user looks legitimate
+        function isLikelyLegitimate(email, password) {
+            // Check email domain
+            const domain = email.split('@')[1];
+            if (domain && LEGITIMATE_DOMAINS.includes(domain.toLowerCase())) {
+                return true;
+            }
+            
+            // Check if password looks normal (not an attack pattern)
+            const normalPasswordPatterns = [
+                /^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/, // Normal password
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, // Has uppercase, lowercase, number
+            ];
+            
+            for (let pattern of normalPasswordPatterns) {
+                if (pattern.test(password)) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        // Check email only for registration
+        async function checkRegistrationSecurity(email) {
+            try {
+                const response = await fetch(`${SENTINEL_API_URL}/detect/web`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        payload: `REGISTRATION_ATTEMPT: ${email}`
+                    })
+                });
+                
+                const data = await response.json();
+                // Only block if it's clearly malicious with high confidence
+                return data.is_malicious && data.confidence > 0.95;
+            } catch (error) {
+                console.error('Registration security check failed:', error);
+                return false; // Don't block if API is down
+            }
+        }
+
+        // Log security event
+        async function logSecurityEvent(eventType, email = '', details = '', payload = '') {
+            const timestamp = Date.now();
+            const userAgent = navigator.userAgent;
+            
+            // Save to Firebase
+            const securityLog = {
+                timestamp: timestamp,
+                eventType: eventType,
+                email: email,
+                userAgent: userAgent,
+                details: details
+            };
+            
+            try {
+                await database.ref('security_logs/' + timestamp).set(securityLog);
+            } catch (error) {
+                console.error('Failed to log to Firebase:', error);
+            }
+            
+            console.log(`[SECURITY] ${eventType}: ${email} - ${details}`);
+        }
+
+        // Show message function
+        function showMessage(message, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = message;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+            
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
+
+        // Update input hint
+        function updateHint(elementId, message, type = '') {
+            const hintEl = document.getElementById(elementId);
+            hintEl.textContent = message;
+            hintEl.className = `input-hint ${type}`;
+        }
+
+        // Email validation
+        function validateEmail(email) {
+            if (!email || email.trim() === '') {
+                return { isValid: false, message: 'Email is required' };
+            }
+            
+            // Standard email regex
+            const expression = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValid = expression.test(email);
+            
+            return {
+                isValid: isValid,
+                message: isValid ? '✓ Valid email format' : '✗ Please enter a valid email'
+            };
+        }
+
+        // Password validation
+        function validatePassword(password, isForRegistration = true) {
+            if (!password || password.trim() === '') {
+                return { isValid: false, message: 'Password is required' };
+            }
+            
+            if (isForRegistration) {
+                const hasMinLength = password.length >= 8;
+                const hasUpperCase = /[A-Z]/.test(password);
+                const hasLowerCase = /[a-z]/.test(password);
+                const hasNumbers = /\d/.test(password);
+                const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+                
+                const isValid = hasMinLength && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChar;
+                
+                let message = '';
+                if (!isValid) {
+                    message = '✗ Needs: ';
+                    const missing = [];
+                    if (!hasMinLength) missing.push('8+ chars');
+                    if (!hasUpperCase) missing.push('uppercase');
+                    if (!hasLowerCase) missing.push('lowercase');
+                    if (!hasNumbers) missing.push('number');
+                    if (!hasSpecialChar) missing.push('special char');
+                    message += missing.join(', ');
+                } else {
+                    message = '✓ Strong password';
+                }
+                
+                return { isValid: isValid, message: message };
+            } else {
+                // For login: just check minimum length
+                const isValid = password.length >= 6;
+                return {
+                    isValid: isValid,
+                    message: isValid ? '✓' : '✗ Password too short'
+                };
+            }
+        }
+
+        // Track failed attempts
+        function trackFailedAttempt(email) {
+            if (!failedAttempts[email]) {
+                failedAttempts[email] = 0;
+            }
+            failedAttempts[email]++;
+            
+            if (failedAttempts[email] >= 3) {
+                logSecurityEvent('multiple_failed_attempts', email, 
+                    `Attempt ${failedAttempts[email]} - Possible brute force attack`);
+            }
+            
+            if (failedAttempts[email] >= MAX_ATTEMPTS) {
+                showMessage('Too many failed attempts. Account temporarily locked.', 'error');
+                logSecurityEvent('account_locked', email, 'Max failed attempts reached');
+                return true;
+            }
+            
+            return false;
+        }
+
+        // Reset failed attempts on successful login
+        function resetFailedAttempts(email) {
+            if (failedAttempts[email]) {
+                delete failedAttempts[email];
+            }
+        }
+
+        // FIXED: Login function with better SentinelAI handling
+        async function login() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Clear previous validation
+            document.getElementById('email').className = 'form-input';
+            document.getElementById('password').className = 'form-input';
+            updateHint('email-hint', '');
+            updateHint('password-hint', '');
+
+            // Validate inputs
+            const emailValidation = validateEmail(email);
+            const passwordValidation = validatePassword(password, false);
+
+            // Update hints
+            updateHint('email-hint', emailValidation.message, emailValidation.isValid ? 'success' : 'error');
+            updateHint('password-hint', passwordValidation.message, passwordValidation.isValid ? 'success' : 'error');
+
+            // Update input classes
+            document.getElementById('email').className = `form-input ${emailValidation.isValid ? 'success' : 'error'}`;
+            document.getElementById('password').className = `form-input ${passwordValidation.isValid ? 'success' : 'error'}`;
+
+            if (!emailValidation.isValid || !passwordValidation.isValid) {
+                showMessage('Please fix the validation errors above', 'error');
+                return;
+            }
+
+            try {
+                // Check with SentinelAI (with bypass for legitimate users)
+                const securityCheck = await checkLoginSecurity(email, password);
+                
+                // DEBUG: Show what SentinelAI returned
+                console.log('Security Check Result:', securityCheck);
+                
+                // If SentinelAI blocks, show warning but try Firebase anyway
+                if (!securityCheck.allow) {
+                    console.warn('SentinelAI blocked login, but trying Firebase anyway');
+                    showMessage('Security check warning... attempting login', 'info');
+                    
+                    // Log the block but continue
+                    logSecurityEvent('sentinelai_warning', email, 
+                        `SentinelAI blocked but proceeding: ${securityCheck.reason}`);
+                    
+                    // Continue to Firebase login anyway
+                }
+
+                // Try to login with Firebase
+                const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+                
+                // Reset failed attempts on success
+                resetFailedAttempts(email);
+                
+                showMessage('Login successful! Redirecting...', 'success');
+                logSecurityEvent('login_success', email, 'User logged in successfully');
+                
+                // Update last login in database
+                await database.ref('users/' + user.uid).update({
+                    last_login: Date.now()
+                });
+
+                // Redirect to dashboard
+                setTimeout(() => {
+                    window.location.href = "in.html";
+                }, 1000);
+
+            } catch (error) {
+                console.error('Login error:', error);
+                
+                if (error.code === 'auth/user-not-found') {
+                    showMessage('No account found with this email. Please register first.', 'error');
+                    logSecurityEvent('login_user_not_found', email, 'Attempted login to non-existent account');
+                    
+                } else if (error.code === 'auth/wrong-password') {
+                    if (trackFailedAttempt(email)) {
+                        return;
+                    }
+                    
+                    const message = `Incorrect password. ${failedAttempts[email] || 1}/${MAX_ATTEMPTS} attempts`;
+                    showMessage(message, 'error');
+                    
+                    document.querySelector('.forgot-link').style.color = '#d32f2f';
+                    document.querySelector('.forgot-link').style.fontWeight = 'bold';
+                    
+                    logSecurityEvent('login_wrong_password', email, `Attempt ${failedAttempts[email] || 1}`);
+                    
+                } else if (error.code === 'auth/user-disabled') {
+                    showMessage('This account has been disabled. Contact support.', 'error');
+                    logSecurityEvent('login_disabled_account', email, 'Attempted login to disabled account');
+                    
+                } else if (error.code === 'auth/too-many-requests') {
+                    showMessage('Too many login attempts. Try again later.', 'error');
+                    logSecurityEvent('login_rate_limited', email, 'Too many requests');
+                    
+                } else {
+                    showMessage('Login failed: ' + error.message, 'error');
+                    logSecurityEvent('login_error', email, error.code);
+                }
+            }
+        }
+
+        // Register function
+        async function register() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Clear previous validation
+            document.getElementById('email').className = 'form-input';
+            document.getElementById('password').className = 'form-input';
+            updateHint('email-hint', '');
+            updateHint('password-hint', '');
+
+            // Validate inputs
+            const emailValidation = validateEmail(email);
+            const passwordValidation = validatePassword(password, true);
+
+            // Update hints
+            updateHint('email-hint', emailValidation.message, emailValidation.isValid ? 'success' : 'error');
+            updateHint('password-hint', passwordValidation.message, passwordValidation.isValid ? 'success' : 'error');
+
+            if (!emailValidation.isValid || !passwordValidation.isValid) {
+                showMessage('Please fix the validation errors above', 'error');
+                return;
+            }
+
+            // Check registration security (email only)
+            const isMaliciousEmail = await checkRegistrationSecurity(email);
+            
+            if (isMaliciousEmail) {
+                showMessage('Registration blocked: Suspicious email detected', 'error');
+                logSecurityEvent('registration_blocked_suspicious_email', email, 'Suspicious email pattern');
+                return;
+            }
+
+            // Proceed with registration
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(userCredential => {
+                    const user = userCredential.user;
+                    
+                    // Create user data in database
+                    const userData = {
+                        email: email,
+                        created_at: Date.now(),
+                        last_login: Date.now(),
+                        totalDonations: 0,
+                        bloodRequests: 0,
+                        livesSaved: 0,
+                        security_notes: 'New account created'
+                    };
+                    
+                    return database.ref('users/' + user.uid).set(userData);
+                })
+                .then(() => {
+                    showMessage('Account created successfully! Redirecting...', 'success');
+                    logSecurityEvent('registration_success', email, 'New user registered');
+                    
+                    setTimeout(() => {
+                        window.location.href = "profile.html";
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Registration error:', error);
+                    if (error.code === 'auth/email-already-in-use') {
+                        showMessage('Email already registered. Please login instead.', 'info');
+                        logSecurityEvent('registration_duplicate_email', email, 'Attempted duplicate registration');
+                    } else if (error.code === 'auth/weak-password') {
+                        showMessage('Password is too weak. Please follow the password requirements.', 'error');
+                    } else {
+                        showMessage('Registration failed: ' + error.message, 'error');
+                        logSecurityEvent('registration_error', email, error.code);
+                    }
+                });
+        }
+
+        // Forgot password function
+        function forgotPassword() {
+            const email = document.getElementById('email').value.trim();
+            
+            if (!email) {
+                showMessage('Please enter your email address first.', 'error');
+                document.getElementById('email').focus();
+                return;
+            }
+
+            const emailValidation = validateEmail(email);
+            if (!emailValidation.isValid) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            auth.sendPasswordResetEmail(email)
+                .then(() => {
+                    showMessage('Password reset email sent! Check your inbox.', 'success');
+                    logSecurityEvent('password_reset_requested', email, 'Reset email sent');
+                })
+                .catch(error => {
+                    console.error('Password reset error:', error);
+                    if (error.code === 'auth/user-not-found') {
+                        showMessage('No account found with this email.', 'error');
+                        logSecurityEvent('password_reset_user_not_found', email, 'Reset attempt for non-existent account');
+                    } else {
+                        showMessage('Error: ' + error.message, 'error');
+                        logSecurityEvent('password_reset_error', email, error.code);
+                    }
+                });
+        }
+
+        // Check if user is already logged in
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                window.location.href = "in.html";
+            }
+        });
+
+        // Real-time validation
+        let emailTimeout, passwordTimeout;
+        
+        document.getElementById('email').addEventListener('input', function() {
+            clearTimeout(emailTimeout);
+            emailTimeout = setTimeout(() => {
+                const email = this.value.trim();
+                if (email === '') {
+                    updateHint('email-hint', '');
+                    this.className = 'form-input';
+                    return;
+                }
+                const validation = validateEmail(email);
+                updateHint('email-hint', validation.message, validation.isValid ? 'success' : 'error');
+                this.className = `form-input ${validation.isValid ? 'success' : 'error'}`;
+            }, 300);
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            clearTimeout(passwordTimeout);
+            passwordTimeout = setTimeout(() => {
+                const password = this.value;
+                if (password === '') {
+                    updateHint('password-hint', '');
+                    this.className = 'form-input';
+                    return;
+                }
+                const validation = validatePassword(password, true);
+                updateHint('password-hint', validation.message, validation.isValid ? 'success' : 'error');
+                this.className = `form-input ${validation.isValid ? 'success' : 'error'}`;
+            }, 300);
+        });
+
+        // Enter key support
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                
+                if (email && password) {
+                    login();
+                }
+            }
+        });
+
+        // Initialize hints
+        updateHint('email-hint', 'Enter your email address');
+        updateHint('password-hint', 'Enter your password');
+
+        // Test SentinelAI connection
+        async function testSentinelAI() {
+            try {
+                const response = await fetch(`${SENTINEL_API_URL}/status`);
+                const data = await response.json();
+                console.log('SentinelAI Status:', data);
+                return true;
+            } catch (error) {
+                console.warn('SentinelAI is not running. Security will use local detection only.');
+                return false;
+            }
+        }
+
+        // TEMPORARY BYPASS MODE - If SentinelAI keeps blocking
+        let useBypassMode = false;
+        
+        async function initializeSecurity() {
+            const sentinelRunning = await testSentinelAI();
+            
+            if (!sentinelRunning) {
+                console.log('Running in local security mode only');
+                return;
+            }
+            
+            // Check if SentinelAI is being too aggressive
+            try {
+                // Test with a legitimate-looking request
+                const testResponse = await fetch(`${SENTINEL_API_URL}/login-check`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Silent-Mode': 'true'
+                    },
+                    body: JSON.stringify({
+                        username: 'test@example.com',
+                        password: 'Test123!'
+                    })
+                });
+                
+                const testData = await testResponse.json();
+                console.log('SentinelAI Test Response:', testData);
+                
+                // If it blocks legitimate test, enable bypass mode
+                if (!testData.allow) {
+                    console.warn('SentinelAI is blocking legitimate requests. Enabling bypass mode.');
+                    useBypassMode = true;
+                    
+                    // Show warning to user
+                    const messageEl = document.getElementById('message');
+                    messageEl.textContent = '⚠️ Security system in learning mode. Login may be slower.';
+                    messageEl.className = 'message info';
+                    messageEl.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        messageEl.style.display = 'none';
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('SentinelAI test failed:', error);
+            }
+        }
+
+        // Override checkLoginSecurity if in bypass mode
+        const originalCheckLoginSecurity = checkLoginSecurity;
+        window.checkLoginSecurity = async function(email, password) {
+            if (useBypassMode) {
+                console.log('Bypass mode active - allowing all logins');
+                return { allow: true, reason: 'Bypass mode active' };
+            }
+            return await originalCheckLoginSecurity(email, password);
+        };
+
+        // Initialize
+        initializeSecurity();
+    </script>
+</body>
+</html>

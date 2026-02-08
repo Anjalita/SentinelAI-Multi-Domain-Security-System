@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeLink - Blood Availability</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #b71c1c;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+            --text-color: #333;
+            --text-light: #666;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .header {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "❤️";
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .back-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .blood-table {
+            width: 100%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .blood-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .blood-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .blood-table td {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--text-color);
+        }
+
+        .blood-table tr:hover {
+            background-color: rgba(211, 47, 47, 0.05);
+        }
+
+        .blood-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .availability-badge {
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .available {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .limited {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+
+        .unavailable {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .blood-groups {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .blood-group-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            min-width: 150px;
+            transition: transform 0.3s;
+        }
+
+        .blood-group-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blood-type {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .blood-count {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .blood-status {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .highlight {
+            background-color: #fffacd;
+            font-weight: 500;
+        }
+
+        .info-message {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-icon {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .filters {
+                flex-direction: column;
+            }
+            
+            .blood-table {
+                overflow-x: auto;
+            }
+            
+            .blood-table table {
+                min-width: 800px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">LifeLink - Blood Availability</div>
+        
+        <div class="nav-links">
+            <a href="in.html" class="nav-link">Dashboard</a>
+            <a href="report.html" class="nav-link">Blood Report</a>
+            <a href="availability.html" class="nav-link active">Blood Availability</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+            <a href="setting.html" class="nav-link">Settings</a>
+        </div>
+        
+        <button class="back-btn" onclick="window.location.href='in.html'">
+            ← Back to Dashboard
+        </button>
+    </div>
+
+    <h1 class="page-title">Local Blood Availability</h1>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search hospital, blood type, or location...">
+            <button class="search-btn" onclick="searchBlood()">
+                🔍 Search
+            </button>
+        </div>
+        
+        <div class="filters">
+            <select class="filter-select" id="bloodTypeFilter" onchange="filterTable()">
+                <option value="">All Blood Types</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+            
+            <select class="filter-select" id="availabilityFilter" onchange="filterTable()">
+                <option value="">All Availability</option>
+                <option value="available">Available</option>
+                <option value="limited">Limited</option>
+                <option value="unavailable">Unavailable</option>
+            </select>
+            
+            <select class="filter-select" id="locationFilter" onchange="filterTable()">
+                <option value="">All Locations</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="hospital">Major Hospital</option>
+                <option value="blood bank">Blood Bank</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="info-message">
+        <div class="info-icon">ℹ️</div>
+        <div>
+            <strong>Important:</strong> Blood availability changes frequently. Please contact the hospital directly for the latest information before visiting.
+        </div>
+    </div>
+
+    <div class="blood-table">
+        <table id="bloodAvailabilityTable">
+            <thead>
+                <tr>
+                    <th>Blood Type</th>
+                    <th>Availability</th>
+                    <th>Location</th>
+                    <th>Hospital Name</th>
+                    <th>Phone Number</th>
+                    <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody id="bloodTableBody">
+                <!-- Data will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="blood-groups">
+        <div class="blood-group-card">
+            <div class="blood-type">A+</div>
+            <div class="blood-count">450 units</div>
+            <div class="blood-status available">Available</div>
+        </div>
+        
+        <div class="blood-group-card">
+            <div class="blood-type">B+</div>
+            <div class="blood-count">380 units</div>
+            <div class="blood-status available">Available</div>
+        </div>
+        
+        <div class="blood-group-card">
+            <div class="blood-type">O+</div>
+            <div class="blood-count">620 units</div>
+            <div class="blood-status available">Available</div>
+        </div>
+        
+        <div class="blood-group-card">
+            <div class="blood-type">AB+</div>
+            <div class="blood-count">120 units</div>
+            <div class="blood-status limited">Limited</div>
+        </div>
+        
+        <div class="blood-group-card">
+            <div class="blood-type">O-</div>
+            <div class="blood-count">85 units</div>
+            <div class="blood-status limited">Limited</div>
+        </div>
+    </div>
+
+    <script>
+        // Sample blood availability data
+        const bloodData = [
+            { type: "A+", availability: "Available", location: "Baptist Hospital", hospital: "Baptist Hospital", phone: "080-23330323", updated: "Today" },
+            { type: "All", availability: "Available", location: "Bangalore Children's Hospital", hospital: "Bangalore Children's Hospital", phone: "080-28600252", updated: "Today" },
+            { type: "All", availability: "Available", location: "Bangalore Hospital", hospital: "Bangalore Hospital", phone: "080-26565494", updated: "Today" },
+            { type: "B+, A+", availability: "Available", location: "Bhagwan Mahaveer Jain Hospital", hospital: "Bhagwan Mahaveer Jain Hospital", phone: "080-22207640", updated: "2 hours ago" },
+            { type: "All", availability: "Available", location: "Karnataka Red Cross Blood Bank", hospital: "Karnataka Red Cross Blood Bank", phone: "080-22268435", updated: "Today" },
+            { type: "A+, O+", availability: "Available", location: "KIMS Hospital", hospital: "KIMS Hospital", phone: "080-26673056", updated: "3 hours ago" },
+            { type: "All", availability: "Available", location: "Lions Blood Bank", hospital: "Lions Blood Bank", phone: "080-22266807", updated: "Today" },
+            { type: "B+, A, O+", availability: "Limited", location: "MS Ramaiah Hospital", hospital: "MS Ramaiah Hospital", phone: "080-23606545", updated: "Yesterday" },
+            { type: "B+, A", availability: "Available", location: "NIMHANS", hospital: "NIMHANS", phone: "080-26995000", updated: "Today" },
+            { type: "All", availability: "Available", location: "Rotary Blood Bank", hospital: "Rotary Blood Bank", phone: "080-25293486", updated: "Today" },
+            { type: "B+, B", availability: "Limited", location: "Sagar Apollo Hospital", hospital: "Sagar Apollo Hospital", phone: "080-26536700", updated: "Yesterday" },
+            { type: "B+", availability: "Available", location: "Sanjay Gandhi Hospital", hospital: "Sanjay Gandhi Hospital", phone: "080-26564516", updated: "Today" },
+            { type: "B+", availability: "Unavailable", location: "Vanivilas Hospital", hospital: "Vanivilas Hospital", phone: "080-26705206", updated: "2 days ago" },
+            { type: "B+", availability: "Available", location: "Victoria Hospital", hospital: "Victoria Hospital", phone: "080-26701150", updated: "Today" },
+            { type: "B+", availability: "Limited", location: "Unique Blood Bank", hospital: "Unique Blood Bank", phone: "080-26700685", updated: "Yesterday" },
+            { type: "B, A", availability: "Available", location: "Seshadripuram Apollo Hospital", hospital: "Seshadripuram Apollo Hospital", phone: "080-46688888", updated: "Today" }
+        ];
+
+        // Populate table with data
+        function populateTable() {
+            const tableBody = document.getElementById('bloodTableBody');
+            tableBody.innerHTML = '';
+            
+            bloodData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${item.type}</strong></td>
+                    <td><span class="availability-badge ${item.availability.toLowerCase()}">${item.availability}</span></td>
+                    <td>${item.location}</td>
+                    <td><strong>${item.hospital}</strong></td>
+                    <td><a href="tel:${item.phone}" style="color: var(--primary-color); text-decoration: none;">${item.phone}</a></td>
+                    <td>${item.updated}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Search function
+        function searchBlood() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#bloodTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                    // Highlight matching text
+                    if (searchTerm) {
+                        row.classList.add('highlight');
+                    } else {
+                        row.classList.remove('highlight');
+                    }
+                } else {
+                    row.style.display = 'none';
+                    row.classList.remove('highlight');
+                }
+            });
+        }
+
+        // Filter table
+        function filterTable() {
+            const bloodType = document.getElementById('bloodTypeFilter').value;
+            const availability = document.getElementById('availabilityFilter').value;
+            const location = document.getElementById('locationFilter').value;
+            const rows = document.querySelectorAll('#bloodTableBody tr');
+            
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                const rowBloodType = cells[0].textContent;
+                const rowAvailability = cells[1].textContent.toLowerCase();
+                const rowLocation = cells[2].textContent.toLowerCase();
+                
+                let showRow = true;
+                
+                if (bloodType && !rowBloodType.includes(bloodType)) {
+                    showRow = false;
+                }
+                
+                if (availability && !rowAvailability.includes(availability)) {
+                    showRow = false;
+                }
+                
+                if (location && !rowLocation.includes(location)) {
+                    showRow = false;
+                }
+                
+                row.style.display = showRow ? '' : 'none';
+            });
+        }
+
+        // Initialize table on load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTable();
+            
+            // Add enter key support for search
+            document.getElementById('searchInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    searchBlood();
+                }
+            });
+            
+            // Add click to call functionality
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const phone = link.getAttribute('href').replace('tel:', '');
+                    if (confirm(`Call ${phone}?`)) {
+                        window.location.href = `tel:${phone}`;
+                    }
+                });
+            });
+        });
+
+        // Check authentication
+        const firebaseConfig = {
+            apiKey: "AIzaSyCl17zNeEBsyCi0SmD83EXWzOMDynu-Ro0",
+            authDomain: "blood-and-hospital-finder-main.firebaseapp.com",
+            databaseURL: "https://blood-and-hospital-finder-main-default-rtdb.firebaseio.com",
+            projectId: "blood-and-hospital-finder-main",
+            storageBucket: "blood-and-hospital-finder-main.appspot.com",
+            messagingSenderId: "746429696511",
+            appId: "1:746429696511:web:2b435c8e0633fe32537fca",
+            measurementId: "G-DD0CX3HH6W"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        
+        const auth = firebase.auth();
+        
+        // Check if user is logged in
+        auth.onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+</html>

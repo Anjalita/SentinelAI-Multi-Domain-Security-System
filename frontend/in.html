@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeLink: Blood and Health Network - Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #b71c1c;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+            --text-color: #333;
+            --text-light: #666;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "❤️";
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 0;
+            position: fixed;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .sidebar-item {
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-item:hover, .sidebar-item.active {
+            background-color: rgba(211, 47, 47, 0.1);
+            border-left: 4px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .sidebar-icon {
+            font-size: 20px;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+        }
+
+        .icon-donor { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .icon-hospital { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .icon-request { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .icon-emergency { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+
+        .stat-info h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .stat-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .chart-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .chart-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chart-title::before {
+            content: "📊";
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .feature-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .feature-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .sidebar.active {
+                display: block;
+                width: 100%;
+                position: fixed;
+                top: 70px;
+                height: auto;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">LifeLink</div>
+        
+        <div class="nav-links">
+            <a href="in.html" class="nav-link active">Dashboard</a>
+            <a href="report.html" class="nav-link">Blood Report</a>
+            <a href="availability.html" class="nav-link">Blood Availability</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+            <a href="setting.html" class="nav-link">Settings</a>
+        </div>
+        
+        <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+        
+        <div class="user-info">
+            <div class="user-avatar" id="userAvatar">U</div>
+            <div>
+                <div id="userName">User</div>
+                <div id="userEmail" style="font-size: 12px; color: #666;">Loading...</div>
+            </div>
+            <a href="#" onclick="logout()" style="margin-left: 20px; color: var(--primary-color); text-decoration: none;">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <a href="in.html" class="sidebar-item active">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="report.html" class="sidebar-item">
+                <span class="sidebar-icon">📋</span>
+                <span>Blood Report</span>
+            </a>
+            <a href="availability.html" class="sidebar-item">
+                <span class="sidebar-icon">🏥</span>
+                <span>Blood Availability</span>
+            </a>
+            <a href="profile.html" class="sidebar-item">
+                <span class="sidebar-icon">👤</span>
+                <span>Profile</span>
+            </a>
+            <a href="setting.html" class="sidebar-item">
+                <span class="sidebar-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+            <a href="#" onclick="logout()" class="sidebar-item">
+                <span class="sidebar-icon">🚪</span>
+                <span>Logout</span>
+            </a>
+        </div>
+
+        <div class="main-content">
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <div class="stat-icon icon-donor">❤️</div>
+                    <div class="stat-info">
+                        <h3 id="totalDonors">1,234</h3>
+                        <p>Total Donors</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon icon-hospital">🏥</div>
+                    <div class="stat-info">
+                        <h3 id="activeHospitals">89</h3>
+                        <p>Active Hospitals</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon icon-request">🩸</div>
+                    <div class="stat-info">
+                        <h3 id="bloodRequests">56</h3>
+                        <p>Blood Requests</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon icon-emergency">🚨</div>
+                    <div class="stat-info">
+                        <h3 id="emergencyCases">12</h3>
+                        <p>Emergency Cases</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2 class="chart-title">Blood Type Distribution</h2>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <canvas id="bloodChart"></canvas>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🩸</div>
+                    <h3 class="feature-title">Find Blood Donors</h3>
+                    <p class="feature-description">Search for blood donors by blood type and location. Connect with willing donors in your area.</p>
+                    <button class="feature-btn" onclick="window.location.href='availability.html'">Search Donors</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3 class="feature-title">Find Hospitals</h3>
+                    <p class="feature-description">Locate nearby hospitals and healthcare centers with blood bank facilities.</p>
+                    <button class="feature-btn" onclick="window.location.href='availability.html'">Find Hospitals</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3 class="feature-title">Register as Donor</h3>
+                    <p class="feature-description">Become a blood donor and save lives. Register your details to help others in need.</p>
+                    <button class="feature-btn" onclick="window.location.href='profile.html'">Register Now</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3 class="feature-title">Emergency Request</h3>
+                    <p class="feature-description">Request emergency blood supply. Our network will help you find blood quickly.</p>
+                    <button class="feature-btn" onclick="alert('Emergency request sent! We will contact you shortly.')">Request Blood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCl17zNeEBsyCi0SmD83EXWzOMDynu-Ro0",
+            authDomain: "blood-and-hospital-finder-main.firebaseapp.com",
+            databaseURL: "https://blood-and-hospital-finder-main-default-rtdb.firebaseio.com",
+            projectId: "blood-and-hospital-finder-main",
+            storageBucket: "blood-and-hospital-finder-main.appspot.com",
+            messagingSenderId: "746429696511",
+            appId: "1:746429696511:web:2b435c8e0633fe32537fca",
+            measurementId: "G-DD0CX3HH6W"
+        };
+
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const auth = firebase.auth();
+        const database = firebase.database();
+
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Logout function
+        function logout() {
+            auth.signOut().then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error("Logout error:", error);
+                alert("Logout failed. Please try again.");
+            });
+        }
+
+        // Load user data
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                document.getElementById('userEmail').textContent = user.email;
+                
+                // Set avatar initial
+                const avatar = document.getElementById('userAvatar');
+                avatar.textContent = user.email.charAt(0).toUpperCase();
+                
+                // Load user profile from database
+                database.ref('users/' + user.uid).once('value').then((snapshot) => {
+                    const userData = snapshot.val();
+                    if (userData && userData.name) {
+                        document.getElementById('userName').textContent = userData.name;
+                    } else {
+                        document.getElementById('userName').textContent = user.email.split('@')[0];
+                    }
+                }).catch((error) => {
+                    console.error("Error loading user data:", error);
+                });
+            } else {
+                // No user is signed in, redirect to login
+                window.location.href = "index.html";
+            }
+        });
+
+        // Initialize blood type chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('bloodChart').getContext('2d');
+            const bloodChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['A+ (34%)', 'A- (7%)', 'B+ (9%)', 'B- (2%)', 'AB+ (3%)', 'AB- (1%)', 'O+ (38%)', 'O- (6%)'],
+                    datasets: [{
+                        data: [34, 7, 9, 2, 3, 1, 38, 6],
+                        backgroundColor: [
+                            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0',
+                            '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Update dashboard stats
+        function updateDashboardStats() {
+            // These could be fetched from Firebase
+            const stats = {
+                donors: 1234,
+                hospitals: 89,
+                requests: 56,
+                emergencies: 12
+            };
+            
+            document.getElementById('totalDonors').textContent = stats.donors.toLocaleString();
+            document.getElementById('activeHospitals').textContent = stats.hospitals;
+            document.getElementById('bloodRequests').textContent = stats.requests;
+            document.getElementById('emergencyCases').textContent = stats.emergencies;
+        }
+
+        // Initialize dashboard
+        updateDashboardStats();
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (window.innerWidth <= 768 && 
+                sidebar.classList.contains('active') &&
+                !sidebar.contains(event.target) && 
+                !mobileBtn.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

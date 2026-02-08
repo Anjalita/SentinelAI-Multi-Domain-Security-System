@@ -1,0 +1,1471 @@
+{
+  "alerts": [
+    {
+      "timestamp": "2026-02-08 07:59:44",
+      "module": "LOGIN",
+      "attack_type": "SUCCESSFUL_LOGIN",
+      "severity": "INFO",
+      "confidence": 0.0,
+      "payload": "User: test",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:00",
+      "module": "WEB",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.64,
+      "payload": "admin",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:01",
+      "module": "WEB",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.64,
+      "payload": "admin'",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:05",
+      "module": "WEB",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.64,
+      "payload": "admin",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:08",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:10",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script>",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:11",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:52",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 08:43:54",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script>",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:44",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:45",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script?",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:45",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:46",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script>",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:47",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script>a",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:47",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.98,
+      "payload": "<script>al",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:47",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script>ale",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:47",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.99,
+      "payload": "<script>aler",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:47",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:48",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert(",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:48",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:49",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:50",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1'",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:50",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:51",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')<",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:52",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')<?",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:53",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')<",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:53",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:53",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</s",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:54",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</sc",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:54",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</scr",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:55",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</scri",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:55",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</scrip",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:55",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</script",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:07:56",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</script>",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:14:24",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</script> dsdsadsda112312@",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:16:25",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('1')</script> dsdsadsda112312@",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 09:33:08",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert(`1`)</script> ",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:31",
+      "module": "LOGIN",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.79,
+      "payload": "admin@gmail.com Admin@123",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:34",
+      "module": "LOGIN",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.79,
+      "payload": "admin@gmail.com Admin@123",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:34",
+      "module": "LOGIN",
+      "attack_type": "IP_BLOCKED",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "IP blocked after 3 attacks",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:34",
+      "module": "LOGIN",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.79,
+      "payload": "admin@gmail.com Admin@123",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:35",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:39",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:51",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:35:52",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:36:13",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "suspicious_password_input:  - Potential injection attempt - <script>alert('xss')",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:36:15",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "suspicious_password_input:  - Potential injection attempt - <script>alert('xss')",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:40:12",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:40:15",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:40:42",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:40:44",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:41:00",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 11:41:02",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:13:24",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:13:30",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:13:35",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:13:39",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:13:41",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:14:04",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:17:48",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:18:10",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 12:58:58",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('xss')</script>",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 13:08:48",
+      "module": "WEB",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "<script>alert('hacked')</script>",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 13:50:21",
+      "module": "WEB",
+      "attack_type": "CMDINJ",
+      "severity": "CRITICAL",
+      "confidence": 0.47,
+      "payload": "GET /test.php?id=1 OR 1=1",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:17:21",
+      "module": "WEB",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.64,
+      "payload": "admin OR 1=1",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:21:11",
+      "module": "WEB",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.64,
+      "payload": "admin OR 1=1",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:21:31",
+      "module": "WEB",
+      "attack_type": "SQL",
+      "severity": "CRITICAL",
+      "confidence": 0.64,
+      "payload": "admin OR 1=1",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:32",
+      "module": "LOGIN",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.72,
+      "payload": "test@example.com Test123!",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:34",
+      "module": "LOGIN",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.72,
+      "payload": "test@example.com Test123!",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:34",
+      "module": "LOGIN",
+      "attack_type": "IP_BLOCKED",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "payload": "IP blocked after 3 attacks",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:34",
+      "module": "LOGIN",
+      "attack_type": "XSS",
+      "severity": "HIGH",
+      "confidence": 0.72,
+      "payload": "test@example.com Test123!",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:35",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:36",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:36",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:37",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:38",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:38",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:39",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:40",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:41",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:41",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:42",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:43",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:43",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:44",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:45",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:45",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:46",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:47",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:47",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:48",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:49",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:50",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:50",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:51",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:51",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:28:52",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:15",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:15",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:16",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:16",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:17",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:18",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:29:19",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:15",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:16",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:17",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:18",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:19",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:20",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:20",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:21",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:22",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:22",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:23",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:24",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:25",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:25",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:26",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:27",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:27",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:28",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:29",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:30",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:30",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:31",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:32",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:33",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:33",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:34",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:35",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:36",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:37",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:37",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:38",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:39",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:40",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:40",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:41",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:42",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:43",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:43",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:44",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:45",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:46",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:46",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:47",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:48",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:49",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:50",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:51",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:51",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:52",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:53",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:54",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:54",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:55",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:56",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:57",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:57",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:58",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:30:59",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    },
+    {
+      "timestamp": "2026-02-08 16:31:14",
+      "module": "LOGIN",
+      "attack_type": "BLOCKED_IP_ATTEMPT",
+      "severity": "MEDIUM",
+      "confidence": 1.0,
+      "payload": "Blocked IP tried login",
+      "ip": "127.0.0.1"
+    }
+  ]
+}

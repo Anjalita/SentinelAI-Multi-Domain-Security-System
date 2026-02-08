@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Data files - DO NOT UPLOAD LARGE FILES
+data/raw/*.csv
+data/processed/*.csv
+data/features/*.pkl
+data/features/*.csv
+*.csv
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+
+# Backup files
+*.backup
+*.bak
+*_backup
+backup/
